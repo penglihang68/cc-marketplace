@@ -1,0 +1,11 @@
+{
+  "name": "my-team-marketplace",
+  "owner": { "name": "Your Name", "email": "you@example.com" },
+  "plugins": [
+    {
+      "name": "my-first-plugin",
+      "source": "./plugins/my-first-plugin",
+      "description": "这是我的第一个插件"
+    }
+  ]
+}

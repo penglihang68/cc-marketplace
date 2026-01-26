@@ -1,0 +1,10 @@
+{
+  "name": "hello-world-plugin",
+  "version": "1.1.0",
+  "commands": [
+    "./commands/hello.md"
+  ],
+  "hooks": {
+    "pre-command": "./hooks/check-todos.md"
+  }
+}
