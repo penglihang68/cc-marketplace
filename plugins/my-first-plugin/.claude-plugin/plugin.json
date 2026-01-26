@@ -5,6 +5,6 @@
     "./commands/hello.md"
   ],
   "hooks": {
-    "pre-command": "./hooks/check-todos.md"
+    "PreToolUse": "./hooks/check-todos.json"
   }
 }

@@ -1,0 +1,16 @@
+{
+  "description": "Check for TODOs and FIXMEs before git commit",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "如果用户即将执行的 Bash 命令包含 'git commit'，则执行以下检查：\n\n1. 使用 Bash 工具执行 `git diff --cached` 查看暂存区的变更\n2. 在变更内容中搜索 'TODO' 或 'FIXME' 关键词\n3. 如果找到了：\n   - 拦截操作，告诉用户：\"等一下！我发现暂存的代码中有未完成的任务（TODO/FIXME），确定要现在提交吗？\"\n   - 列出具体的文件和行号\n   - 询问用户是否继续提交\n4. 如果没找到，静默允许操作继续\n\n对于其他命令，保持静默，不要干扰。"
+          }
+        ]
+      }
+    ]
+  }
+}
