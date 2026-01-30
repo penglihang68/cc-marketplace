@@ -1,11 +1,28 @@
 {
-  "name": "my-team-marketplace",
-  "owner": { "name": "Your Name", "email": "you@example.com" },
   "plugins": [
     {
-      "name": "my-first-plugin",
-      "source": "./plugins/my-first-plugin",
-      "description": "这是我的第一个插件"
+      "id": "hello-world-plugin",
+      "name": "Hello World Plugin",
+      "version": "1.1.0",
+      "description": "A simple hello world plugin with command and hooks support",
+      "author": "lihangpeng",
+      "path": "./plugins/my-first-plugin",
+      "features": [
+        "Hello command",
+        "Pre-tool-use hook for todo checking"
+      ]
+    },
+    {
+      "id": "easyops-dev-assistant",
+      "name": "EASYOPS Development Assistant",
+      "version": "1.0.0",
+      "description": "EASYOPS 开发助手插件，提供问候和交互记录保存功能",
+      "author": "lihangpeng",
+      "path": "./plugins/my-sec-ccbuild-plugin",
+      "features": [
+        "Hello command for EASYOPS programmers",
+        "Save interaction notes skill"
+      ]
     }
   ]
 }
