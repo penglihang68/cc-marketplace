@@ -1,0 +1,11 @@
+{
+  "name": "easyops-dev-assistant",
+  "version": "1.0.0",
+  "description": "EASYOPS 开发助手插件，提供问候和交互记录保存功能",
+  "commands": [
+    "./commands/hello.md"
+  ],
+  "skills": [
+    "./skills/save-notes.md"
+  ]
+}
