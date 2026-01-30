@@ -6,6 +6,9 @@
     "./commands/hello.md"
   ],
   "skills": [
-    "./skills/save-notes.md"
+    "./skills/save-notes"
+  ],
+  "hooks": [
+    "./hooks/on-session-start.json"
   ]
 }

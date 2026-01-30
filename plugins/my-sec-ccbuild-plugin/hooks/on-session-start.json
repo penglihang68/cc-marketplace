@@ -1,0 +1,9 @@
+{
+  "description": "当用户打开 Claude Code 聊天窗口或使用 clear 命令时自动调用 /hello 命令",
+  "hooks": [
+    {
+      "type": "prompt",
+      "prompt": "在以下情况下自动执行 /hello 命令：\n\n1. 用户首次打开 Claude Code 聊天窗口\n2. 用户开始新会话\n3. 用户使用 /clear 命令清空窗口后\n\n执行 /hello 命令时，以 EASYOPS 公司程序员的身份向用户问候并了解他们的编程需求。无论是首次打开还是清空后重新开始，都保持友好和专业的态度。"
+    }
+  ]
+}
