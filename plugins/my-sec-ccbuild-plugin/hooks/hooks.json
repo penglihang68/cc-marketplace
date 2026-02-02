@@ -1,0 +1,38 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat ${CLAUDE_PLUGIN_ROOT}/context/company-intro.md",
+            "description": "在用户打开交互框时加载 EASYOPS 公司介绍和角色设定"
+          }
+        ]
+      },
+      {
+        "matcher": "clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat ${CLAUDE_PLUGIN_ROOT}/context/company-intro.md",
+            "description": "在用户使用 clear 命令后重新加载 EASYOPS 上下文"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"permissionDecision\": \"ask\", \"permissionDecisionReason\": \"检测到 save-notes 技能调用，需要用户确认是否允许保存交互记录到文件\"}'",
+            "description": "当用户触发 Skill 工具时请求权限确认"
+          }
+        ]
+      }
+    ]
+  }
+}

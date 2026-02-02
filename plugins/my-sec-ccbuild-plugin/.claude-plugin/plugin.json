@@ -7,20 +7,5 @@
   ],
   "skills": [
     "./skills/save-notes"
-  ],
-  "hooks": {
-    "OnSessionStart": [
-      {
-        "type": "prompt",
-        "prompt": "立即执行 /easyops-dev-assistant:hello 命令。",
-        "continue": true
-      },
-      {
-        "type": "prompt",
-        "source": "clear",
-        "prompt": "用户执行了 /clear 命令清空了会话。请以 EASYOPS 公司程序员的身份重新问候用户，立即执行 /easyops-dev-assistant:hello 命令。",
-        "continue": true
-      }
-    ]
-  }
+  ]
 }
