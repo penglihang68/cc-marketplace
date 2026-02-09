@@ -9,12 +9,25 @@ version: 1.0.0
 ## Overview
 This skill helps save the complete interaction history between the user and Claude Code to the project's documentation file (`./doc/cc-notes.md`), making it easy to review and reference later.
 
-## When This Skill Applies
-Use this skill when the user:
-- Asks to save the conversation or interaction history
-- Mentions "save notes", "save session", "save chat"
-- Uses Chinese phrases like "保存交互记录", "保存对话"
-- Wants to document the current session
+## 使用方法
+
+用户可以通过以下方式触发 skill：
+
+**方式 1：使用命令**
+```
+/save-notes
+```
+
+**方式 2：在对话中提到关键词**
+```
+保存交互记录
+```
+```
+保存会话
+```
+```
+保存对话
+```
 
 ## Workflow
 1. Check if the `./doc` directory exists in the project; if not, create it

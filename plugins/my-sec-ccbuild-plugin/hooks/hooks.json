@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "SessionStart": [
+  "SessionStart": [
       {
         "matcher": "startup",
         "hooks": [
@@ -30,6 +30,22 @@
             "type": "command",
             "command": "echo '{\"permissionDecision\": \"ask\", \"permissionDecisionReason\": \"检测到 save-notes 技能调用，需要用户确认是否允许保存交互记录到文件\"}'",
             "description": "当用户触发 Skill 工具时请求权限确认"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/detect-workflow-intent.sh",
+            "description": "检测用户是否在询问能力、寻求建议、规划或设计帮助，自动触发工作方式选择"
+          },
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/check-delete-notes.sh",
+            "description": "检测用户 prompt 中是否包含删除或清空 cc-notes.md 的意图"
           }
         ]
       }
