@@ -1,14 +1,15 @@
 {
   "name": "easyops-dev-assistant",
-  "version": "1.0.6",
-  "description": "EASYOPS 开发助手插件，提供问候、交互记录保存、Javis 销售学习和项目管理功能",
+  "version": "1.0.8",
+  "description": "EASYOPS 开发助手插件，提供问候、交互记录保存、Javis 销售学习、项目管理和小红书运营功能",
   "commands": [
     "./commands/hello.md"
   ],
   "skills": [
     "./skills/save-notes",
     "./skills/study-javis",
-    "./skills/manage-projects"
+    "./skills/manage-projects",
+    "./skills/xhs-manager"
   ],
   "mcpServers": {
     "xiaohongshu-mcp": {

@@ -12,16 +12,19 @@ This is an EASYOPS development assistant plugin for Claude Code. The plugin enha
 .
 ├── .claude/
 │   └── agents/
-│       └── sales-project-lister.md  # Sales agent for project management
+│       └── sales-assistant.md    # Sales agent for project management
 ├── .claude-plugin/
 │   └── plugin.json           # Plugin manifest
 ├── commands/
 │   └── hello.md              # Hello command definition
 ├── skills/
-│   ├── save-notes.md         # Save interaction notes skill
+│   ├── save-notes/           # Save interaction notes skill
+│   │   └── SKILL.md
 │   ├── study-javis/          # Javis sales learning assistant
 │   │   └── SKILL.md
-│   └── manage-projects/      # Project management skill
+│   ├── manage-projects/      # Project management skill
+│   │   └── SKILL.md
+│   └── xhs-manager/          # Xiaohongshu (小红书) management skill
 │       └── SKILL.md
 ├── hooks/
 │   └── hooks.json            # Hook configurations
@@ -150,7 +153,68 @@ This is an EASYOPS development assistant plugin for Claude Code. The plugin enha
 
 **Data File**: [doc/project-list.md](doc/project-list.md)
 
-### 6. Sales Project Lister Agent (Auto-triggered for Sales Personnel)
+### 6. XHS Manager Skill (`/xhs-manager`)
+
+**Purpose**: Comprehensive Xiaohongshu (小红书) management skill that integrates all xiaohongshu-mcp tools for content operations, publishing, and user interactions.
+
+**Trigger Keywords**:
+- "小红书"、"xhs"、"xiaohongshu"
+- "小红书登录"、"小红书发布"、"小红书查询"
+- "发布小红书"、"查看小红书"、"小红书互动"
+
+**Core Features**:
+1. **Authentication Module**
+   - Check login status
+   - Get login QR code
+   - Logout (delete cookies)
+
+2. **Content Query Module**
+   - View homepage feeds list
+   - Search Xiaohongshu content
+   - View note details (with comments)
+   - View user profile
+
+3. **Content Publishing Module**
+   - Publish image posts
+   - Publish video posts
+   - Scheduled publishing support
+
+4. **Interaction Module**
+   - Like/unlike posts
+   - Favorite/unfavorite posts
+   - Post comments
+   - Reply to comments
+
+**Workflow**:
+1. **Step 1**: Auto-check login status
+   - If not logged in: Display QR code for login
+   - If logged in: Proceed to next step
+2. **Step 2**: Ask user intent via AskUserQuestion
+   - 查询内容 (Query content)
+   - 发布内容 (Publish content)
+   - 互动操作 (Interaction operations)
+   - 账号管理 (Account management)
+3. **Step 3**: Execute specific operation based on user selection
+   - Query: List feeds / Search / View details / View profile
+   - Publish: Image post / Video post
+   - Interaction: Like / Favorite / Comment / Reply
+   - Account: Check status / Logout / Re-login
+4. **Step 4**: Provide results and ask for further operations
+
+**Key Parameters**:
+- `feed_id`: Note ID (from feeds list or search results)
+- `xsec_token`: Access token (from xsecToken field in feeds)
+- `user_id`: User ID (for profile viewing or comment replies)
+- `comment_id`: Comment ID (for replying to comments)
+
+**MCP Tools Integration**:
+- Uses all 13 xiaohongshu-mcp tools
+- MCP Server: `http://localhost:18060/mcp`
+- Full tool list: check_login_status, get_login_qrcode, list_feeds, search_feeds, get_feed_detail, publish_content, publish_with_video, like_feed, favorite_feed, post_comment_to_feed, reply_comment_in_feed, user_profile, delete_cookies
+
+**File**: [skills/xhs-manager/SKILL.md](skills/xhs-manager/SKILL.md)
+
+### 7. Sales Project Lister Agent (Auto-triggered for Sales Personnel)
 
 **Purpose**: Comprehensive sales assistant that provides project listing, project creation, and Javis learning support for sales personnel.
 
@@ -181,11 +245,12 @@ This is an EASYOPS development assistant plugin for Claude Code. The plugin enha
 - Intelligent workflow routing based on user needs
 - Professional sales-focused presentation
 
-**File**: [.claude/agents/sales-project-lister.md](.claude/agents/sales-project-lister.md)
+**File**: [agents/sales-assistant.md](agents/sales-assistant.md)
 
 **Related Skills**:
 - [manage-projects](#5-manage-projects-skill-manage-projects)
 - [study-javis](#4-study-javis-skill-study-javis)
+- [xhs-manager](#6-xhs-manager-skill-xhs-manager)
 
 **Data File**: [doc/project-list.md](doc/project-list.md)
 
@@ -193,7 +258,7 @@ This is an EASYOPS development assistant plugin for Claude Code. The plugin enha
 
 [.claude-plugin/plugin.json](.claude-plugin/plugin.json) defines:
 - `name`: "easyops-dev-assistant"
-- `version`: "1.0.4"
+- `version`: "1.0.8"
 - `commands`: Array of command file paths
 - `skills`: Array of skill file paths
 

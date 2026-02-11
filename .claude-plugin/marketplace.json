@@ -8,17 +8,6 @@
   },
   "plugins": [
     {
-      "name": "hello-world-plugin",
-      "version": "1.1.0",
-      "description": "A simple hello world plugin with command and hooks support",
-      "author": {
-        "name": "lihangpeng",
-        "email": "lihangpeng@example.com"
-      },
-      "source": "./plugins/my-first-plugin",
-      "category": "development"
-    },
-    {
       "name": "easyops-dev-assistant",
       "version": "1.0.0",
       "description": "EASYOPS 开发助手插件，提供问候和交互记录保存功能",
